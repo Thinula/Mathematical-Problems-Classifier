@@ -1,2 +1,2 @@
 # Mathematical-Problems-Classifier
-This project was made to classify math problems (in particular, contest problems) into the four major categories (Number Theory, Combinatorics, Algebra, Geometry).
+This project was made to classify math problems (in particular, contest problems) into the four major categories (Number Theory, Combinatorics, Algebra, Geometry). The data was taken from mathleague.org's contest archives (unfortunately, this data is confidential and cannot be shared) and the classifier been tested on several hundred problems. Currently, this classifier achieves a 70% accuracy. I will be regularly improving this and also, I might add explanations about the decisions I made during this project.
