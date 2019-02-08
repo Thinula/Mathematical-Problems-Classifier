@@ -11,6 +11,22 @@ category = []
 testProb = []
 testCats = []
 
+def cleanString(string):
+    lastInd = 0
+    while string.count("\n") > 0:
+        ind1 = string.index("\n",lastInd)
+        string = string[:ind1]+string[ind1+1:]
+        lastInd = ind1
+    lastInd = 0
+    while string.count("\t") > 0:
+        ind1 = string.index("\t",lastInd)
+        string = string[:ind1]+string[ind1+1:]
+        lastInd = ind1
+    for j in range(len(string)-1):
+        if string[j:j+1] == " " and string[j+1:j+2] == " ":
+            string = string[:j]+string[j+1:]
+    return string # gets rid of the last }
+
 def collectData(sheetName,problems,category):
     # open the sheets
     highSchool = client.open(sheetName).worksheet('HS') 
@@ -33,8 +49,8 @@ def collectData(sheetName,problems,category):
     geoCount = 0 # counting Geometry problems
     i = oldLen
     while i < len(problems):
-        problems[i].replace("\n","") # replace all instances of \n with empty
-        category[i].replace("\n","") # same as above
+        problems[i] = cleanString(problems[i]) # removes extra line breaks
+            
         if category[i] == '0':
             numCount += 1
         elif category[i] == '1':
@@ -106,5 +122,6 @@ categoryFile.close()
 problemsFile.close()
 testProblems.close()
 testCategory.close()
-
+num_lines = sum(1 for line in open('Problems.txt'))
+print(num_lines)
 
