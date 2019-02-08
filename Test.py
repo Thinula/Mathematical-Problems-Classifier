@@ -6,7 +6,7 @@ problems = []
 category = []
 total = [0 for i in range(4)]
 cleanedProblems = open("Test Cleaned Problems.txt","w")
-for line in open("Test Problems_FINAL.txt","r"):
+for line in open("Test Problems.txt","r"):
     problems.append(line.lower())
 for line in open("Test Category.txt","r"):
     category.append(line)
